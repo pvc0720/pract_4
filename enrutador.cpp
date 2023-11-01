@@ -2,6 +2,7 @@
 #include <iostream>
 
 using namespace std;
+
 Enrutador::Enrutador(const string& nombre) : nombre(nombre) {}
 
 const string& Enrutador::obtenerNombre() const {
