@@ -15,63 +15,63 @@ int main() {
     do {
         cout << "Menu de opciones:\n";
         cout << "1. Agregar conexion\n";
-            std::cout << "2. Eliminar conexion\n";
-            std::cout << "3. Cargar topologia desde archivo\n";
-            std::cout << "4. Encontrar ruta mas corta\n";
-            std::cout << "5. Mostrar conexiones existentes\n";
-        std::cout << "0. Salir\n";
-        std::cout << "Elija una opcion: ";
-                std::cin >> opcion;
+            cout << "2. Eliminar conexion\n";
+            cout << "3. Cargar topologia desde archivo\n";
+            cout << "4. Encontrar ruta mas corta\n";
+            cout << "5. Mostrar conexiones existentes\n";
+            cout << "0. Salir\n";
+        cout << "Elija una opcion: ";
+              cin >> opcion;
 
         switch (opcion) {
         case 1: {
             // Agregar conexión
-            std::string origen, destino;
+            string origen, destino;
             int costo;
-            std::cout << "Ingrese el enrutador de origen: ";
-            std::cin >> origen;
-            std::cout << "Ingrese el enrutador de destino: ";
-            std::cin >> destino;
-            std::cout << "Ingrese el costo: ";
-            std::cin >> costo;
+            cout << "Ingrese el enrutador de origen: ";
+            cin >> origen;
+            cout << "Ingrese el enrutador de destino: ";
+            cin >> destino;
+            cout << "Ingrese el costo: ";
+            cin >> costo;
             red.actualizarConexion(origen, destino, costo);
             break;
         }
         case 2: {
             // Eliminar conexión
-            std::string origen, destino;
-            std::cout << "Ingrese el enrutador de origen: ";
-            std::cin >> origen;
-            std::cout << "Ingrese el enrutador de destino: ";
-            std::cin >> destino;
+            string origen, destino;
+            cout << "Ingrese el enrutador de origen: ";
+            cin >> origen;
+            cout << "Ingrese el enrutador de destino: ";
+            cin >> destino;
             red.removerConexion(origen, destino);
             break;
         }
         case 3: {
             // Cargar topología desde archivo
-            std::string archivo;
-            std::cout << "Ingrese el nombre del archivo de topología: ";
-                    std::cin >> archivo;
+            string archivo;
+            cout << "Ingrese el nombre del archivo de topología: ";
+            cin >> archivo;
             red.cargarDesdeArchivo(archivo);
             break;
         }
         case 4: {
             // Encontrar ruta más corta
-            std::string origen, destino;
-            std::cout << "Ingrese el enrutador de origen: ";
-            std::cin >> origen;
-            std::cout << "Ingrese el enrutador de destino: ";
-            std::cin >> destino;
-            std::vector<std::string> ruta_mas_corta = red.encontrarRutaMasCorta(origen, destino);
+            string origen, destino;
+            cout << "Ingrese el enrutador de origen: ";
+            cin >> origen;
+            cout << "Ingrese el enrutador de destino: ";
+            cin >> destino;
+            vector<string> ruta_mas_corta = red.encontrarRutaMasCorta(origen, destino);
 
             if (ruta_mas_corta.empty()) {
-                std::cout << "No se encontró una ruta desde " << origen << " a " << destino << "." << std::endl;
+                cout << "No se encontró una ruta desde " << origen << " a " << destino << "." << endl;
             } else {
-                std::cout << "Ruta más corta desde " << origen << " a " << destino << ": ";
-                    for (const std::string& enrutador : ruta_mas_corta) {
-                    std::cout << enrutador << " -> ";
+                cout << "Ruta más corta desde " << origen << " a " << destino << ": ";
+                    for (const string& enrutador : ruta_mas_corta) {
+                    cout << enrutador << " -> ";
                 }
-                std::cout << "Costo total: " << red.costoDeEnvio(origen, destino) << std::endl;
+                cout << "Costo total: " << red.costoDeEnvio(origen, destino) << endl;
             }
             break;
         }
@@ -81,10 +81,10 @@ int main() {
             break;
         }
         case 0:
-            std::cout << "Saliendo del programa." << std::endl;
+            cout << "Saliendo del programa." << endl;
             break;
         default:
-            std::cout << "Opcion no valida. Intentelo de nuevo." << std::endl;
+            cout << "Opcion no valida. Intentelo de nuevo." << endl;
         }
     } while (opcion != 0);
 
